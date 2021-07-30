@@ -32,7 +32,7 @@ async function main(year) {
         }else {
           poster = null;
         }
-        // console.log(data[i])
+        console.log(data[i])
         // DB.moviesDB(data[i]);
       });
     }
