@@ -3,6 +3,13 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const fs = require('fs');
 
+const info = {
+    host: 'localhost',
+    user: 'root',
+    password: password,
+    database: database
+}
+
 const con = mysql.createConnection(info);
 
 function query(sql, data){
@@ -33,7 +40,7 @@ async function movieInfo(req,res,{year,page}) {
             
             //코드
             let link = await elem.findElement(By.xpath(`//*[@id="old_content"]/ul/li[${i}]/a`)).getAttribute("href");
-            data.code = parseInt(link.split("https://movie.naver.com/movie/bi/mi/basic.nhn?code=").join(''));
+            data.code = parseInt(link.split("https://movie.naver.com/movie/bi/mi/basic.naver?code=").join(''));
 
             //제목
             let text = await elem.findElement(By.xpath(`//*[@id="old_content"]/ul/li[${i}]/a`)).getText();
@@ -66,7 +73,7 @@ async function movieInfo(req,res,{year,page}) {
             let check = await query('SELECT * FROM movielist WHERE code = ?',list[i].code);
             if(check.length > 0) continue;
             
-            await driver.get(`https://movie.naver.com/movie/bi/mi/basic.nhn?code=${list[i].code}`);
+            await driver.get(`https://movie.naver.com/movie/bi/mi/basic.naver?code=${list[i].code}`);
             let movieInfo = await driver.findElement(By.css('.mv_info_area'));
             let path = `public/imgs/${list[i].code}.jpeg`;
             await driver.findElement(By.xpath('//*[@id="content"]/div[1]/div[2]/div[1]')).takeScreenshot().then(
