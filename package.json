@@ -1,23 +1,50 @@
 {
-  "name": "naver-movie",
+  "name": "vuemovie",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production",
+    "watch": "webpack --watch",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studyingJM/VueMovie.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/studyingJM/VueMovie/issues"
+  },
+  "homepage": "https://github.com/studyingJM/VueMovie#readme",
   "dependencies": {
-    "axios": "^0.21.0",
-    "charset": "^1.0.1",
-    "cheerio": "^1.0.0-rc.3",
-    "colors": "^1.4.0",
-    "iconv-lite": "^0.6.2",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jquery": "^3.5.1",
     "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
-    "node-gyp": "^7.1.2",
-    "request": "^2.88.2"
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "sweetalert2": "^9.17.1",
+    "vue": "^2.6.12",
+    "vue-scroll-loader": "^2.2.0"
+  },
+  "devDependencies": {
+    "css-loader": "^4.2.2",
+    "file-loader": "^6.0.0",
+    "nodemon": "^2.0.4",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "vue-loader": "^15.9.3",
+    "vue-router": "^3.4.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
